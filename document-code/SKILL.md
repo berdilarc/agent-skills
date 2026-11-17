@@ -1,13 +1,13 @@
 ---
-name: code-docs
-description: Write or review the documentation that lives inside source files, namely identifier names, comments, Python docstrings, Terraform variable and output descriptions, and shell script headers and usage text. Reviews are read-only and report findings with suggested rewrites; files are edited only when the user asks to write, add, or fix. Use when the user asks to document, comment, or name things in code, or to review naming, comments, docstrings, or descriptions in a file, directory, or diff. Not for READMEs or other standalone docs (use repo-docs).
+name: document-code
+description: Write or review the documentation that lives inside source files, namely identifier names, comments, Python docstrings, Terraform variable and output descriptions, and shell script headers and usage text. Reviews are read-only and report findings with suggested rewrites; files are edited only when the user asks to write, add, or fix. Use when the user asks to document, comment, or name things in code, or to review naming, comments, docstrings, or descriptions in a file, directory, or diff. Not for READMEs or other standalone docs (use document-repo).
 ---
 
 # Code docs
 
 Write or review documentation inside source files: names, comments, and the language's interface documentation (docstrings, Terraform `description`s, script usage text).
 
-Standalone files such as READMEs, decision records, and changelogs belong to the `repo-docs` skill.
+Standalone files such as READMEs, decision records, and changelogs belong to the `document-repo` skill.
 
 ## Rules
 

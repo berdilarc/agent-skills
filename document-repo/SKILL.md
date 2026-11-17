@@ -1,13 +1,13 @@
 ---
-name: repo-docs
-description: Write, update, or review a repository's standalone documentation (README, architecture decision records, CONTRIBUTING and development setup guides, CHANGELOG, architecture overviews, and runbooks), or audit a repo to find which documents are missing, stale, or unnecessary. Reviews and audits are read-only and report findings; files are written only when the user asks to write, add, update, or fix. Use when the user asks to write or review a README, ADR, decision record, contributing guide, changelog, architecture doc, or runbook, or asks what documentation a repo needs. Not for comments or docstrings inside source files (use code-docs).
+name: document-repo
+description: Write, update, or review a repository's standalone documentation (README, architecture decision records, CONTRIBUTING and development setup guides, CHANGELOG, architecture overviews, and runbooks), or audit a repo to find which documents are missing, stale, or unnecessary. Reviews and audits are read-only and report findings; files are written only when the user asks to write, add, update, or fix. Use when the user asks to write or review a README, ADR, decision record, contributing guide, changelog, architecture doc, or runbook, or asks what documentation a repo needs. Not for comments or docstrings inside source files (use document-code).
 ---
 
 # Repo docs
 
 Write, review, or audit the documents that explain a repository to the people who use, run, and change it.
 
-Documentation inside source files (names, comments, docstrings, Terraform descriptions) belongs to the `code-docs` skill. Commit messages and PR descriptions belong to `draft-commit` and `draft-pr`.
+Documentation inside source files (names, comments, docstrings, Terraform descriptions) belongs to the `document-code` skill. Commit messages and PR descriptions belong to `draft-commit` and `draft-pr`.
 
 ## Rules
 
