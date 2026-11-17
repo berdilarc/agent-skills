@@ -1,11 +1,11 @@
 ---
 name: draft-pr
-description: Draft a pull request title and body from the current branch's commits against its base branch, write them to scratchpad/PR_TITLE.txt and scratchpad/PR_BODY.md at the repo root, and print the GitHub CLI (gh) command to open the PR. Never creates, edits, or pushes anything. Use when the user asks to write, draft, or suggest a pull request, PR title, or PR description.
+description: Draft a pull request title and body from the current branch's commits against its base branch, write them to scratchpad/drafts/PR_TITLE.txt and scratchpad/drafts/PR_BODY.md at the repo root, and print the GitHub CLI (gh) command to open the PR. Never creates, edits, or pushes anything. Use when the user asks to write, draft, or suggest a pull request, PR title, or PR description.
 ---
 
 # Draft PR
 
-Write a PR title and body for the **current branch** to `<repo-root>/scratchpad/PR_TITLE.txt` and `<repo-root>/scratchpad/PR_BODY.md`. The user reviews them and opens the PR themselves.
+Write a PR title and body for the **current branch** to `<repo-root>/scratchpad/drafts/PR_TITLE.txt` and `<repo-root>/scratchpad/drafts/PR_BODY.md`. The user reviews them and opens the PR themselves.
 
 ## Rules
 
@@ -62,13 +62,13 @@ Write a PR title and body for the **current branch** to `<repo-root>/scratchpad/
    - If the branch mixes unrelated concerns, write the best single description and suggest splitting the PR in your reply.
 
 7. **Write the files**
-   - `mkdir -p <root>/scratchpad`, then overwrite `PR_TITLE.txt` (the title on one line, ending in a newline) and `PR_BODY.md` (the body, ending in a newline). No code fences around the content.
-   - `git check-ignore -q scratchpad/PR_TITLE.txt scratchpad/PR_BODY.md` (run from the root). If they aren't ignored, warn the user.
+   - `mkdir -p <root>/scratchpad/drafts`, then overwrite `PR_TITLE.txt` (the title on one line, ending in a newline) and `PR_BODY.md` (the body, ending in a newline). No code fences around the content.
+   - `git check-ignore -q scratchpad/drafts/PR_TITLE.txt scratchpad/drafts/PR_BODY.md` (run from the root). If they aren't ignored, warn the user.
 
 8. **Reply briefly** with the title, the body, the file paths, any warnings (uncommitted changes, unpushed commits, no upstream, mixed concerns), and the command to run:
 
    ```sh
-   gh pr create --base <base> --title "$(cat scratchpad/PR_TITLE.txt)" --body-file scratchpad/PR_BODY.md
+   gh pr create --base <base> --title "$(cat scratchpad/drafts/PR_TITLE.txt)" --body-file scratchpad/drafts/PR_BODY.md
    ```
 
    - Mention `--draft` for a draft PR.
@@ -76,7 +76,7 @@ Write a PR title and body for the **current branch** to `<repo-root>/scratchpad/
    - If a PR already exists, give this instead:
 
      ```sh
-     gh pr edit <number> --title "$(cat scratchpad/PR_TITLE.txt)" --body-file scratchpad/PR_BODY.md
+     gh pr edit <number> --title "$(cat scratchpad/drafts/PR_TITLE.txt)" --body-file scratchpad/drafts/PR_BODY.md
      ```
 
 ## Examples

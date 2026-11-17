@@ -1,11 +1,11 @@
 ---
 name: draft-commit
-description: Draft a succinct Conventional Commits message from the currently staged git changes and write it to scratchpad/COMMIT_MSG.txt at the repo root for the user to review. Never commits. Use when the user asks to write, draft, or suggest a commit message.
+description: Draft a succinct Conventional Commits message from the currently staged git changes and write it to scratchpad/drafts/COMMIT_MSG.txt at the repo root for the user to review. Never commits. Use when the user asks to write, draft, or suggest a commit message.
 ---
 
 # Draft commit
 
-Write a commit message for the **staged** changes to `<repo-root>/scratchpad/COMMIT_MSG.txt`. The user reviews it and commits themselves.
+Write a commit message for the **staged** changes to `<repo-root>/scratchpad/drafts/COMMIT_MSG.txt`. The user reviews it and commits themselves.
 
 ## Rules
 
@@ -39,13 +39,13 @@ Write a commit message for the **staged** changes to `<repo-root>/scratchpad/COM
    - If the staged changes mix unrelated concerns, write the best single message and suggest splitting the commit in your reply.
 
 4. **Write the file**
-   - `mkdir -p <root>/scratchpad`, then overwrite `<root>/scratchpad/COMMIT_MSG.txt` with the plain message, ending in a newline. No code fences.
-   - `git check-ignore -q scratchpad/COMMIT_MSG.txt` (run from the root). If the file isn't ignored, warn the user.
+   - `mkdir -p <root>/scratchpad/drafts`, then overwrite `<root>/scratchpad/drafts/COMMIT_MSG.txt` with the plain message, ending in a newline. No code fences.
+   - `git check-ignore -q scratchpad/drafts/COMMIT_MSG.txt` (run from the root). If the file isn't ignored, warn the user.
 
 5. **Reply briefly** with the message, the file path, and:
 
    ```sh
-   git commit -eF scratchpad/COMMIT_MSG.txt
+   git commit -eF scratchpad/drafts/COMMIT_MSG.txt
    ```
 
 ## Examples
